@@ -6,8 +6,8 @@ import os
 def generate_key():
     """Generate a key based on git commit hash"""
     try:
-        with os.popen('git rev-parse HEAD') as pipe:
-            commit_hash = "9381bfbf9ee0b7c8ed87a46cf064355d66d0331a"
+        # Replace hardcoded commit hash with dynamic retrieval if needed
+        commit_hash = "9381bfbf9ee0b7c8ed87a46cf064355d66d0331a"
         
         if not commit_hash:
             return None
@@ -25,7 +25,7 @@ def decrypt_instructions(encrypted_file='encrypted/INSTRUCTIONS.enc'):
             print("Error: This script must be run in a git repository after forking")
             return None
             
-        with open(encrypted_file, 'r') as f:
+        with open(encrypted_file, 'r', encoding='utf-8') as f:  # Ensure UTF-8 encoding for reading
             encrypted_data = base64.b64decode(f.read())
             
         cipher_suite = Fernet(key)
@@ -34,7 +34,7 @@ def decrypt_instructions(encrypted_file='encrypted/INSTRUCTIONS.enc'):
         
         # Write detailed instructions to markdown files
         for filename, content in instructions.items():
-            with open(filename, 'w') as f:
+            with open(filename, 'w', encoding='utf-8') as f:  # Ensure UTF-8 encoding for writing
                 f.write(content)
                 
         print("\n✨ Instructions decrypted successfully!")
