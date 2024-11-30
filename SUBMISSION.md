@@ -3,8 +3,8 @@
 ## Project Information
 - Name:Srikanth Thanniru
 - Email:srikanththanniru2244@gmail.com
-- Repository URL:
-- Deployed Application URL:
+- Repository URL:https://github.com/SrikanthThanniru/assessment-exargen.git
+- Deployed Application URL:https://owntimerbysrikanth.netlify.app/
 
 ## Implementation Details
 ### Tech Stack Used
